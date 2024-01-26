@@ -18,6 +18,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/myNav.js" type="text/javascript" defer></script>
         <script src="js/myFooter.js" type="text/javascript" defer></script>
+        <script src="js/projectHelpers.js" type="text/javascript" defer></script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -25,30 +26,12 @@
             <navigation-component></navigation-component>
             <!-- Page Content-->
             <header class="py-5">
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
-                                <!-- Project Name-->
-                                <h1 class="display-3 fw-bolder"><span class="text-gradient d-inline">Infinite Isle</span></h1>
-                                <!-- Project Name-->
-                                <div class="fs-3 fw-light text-muted mb-5">A game, I designed to show off a way to procedurally generate one-box Sokoban puzzles.</div>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="assets\Downloads\InfiniteIsle.zip">Download</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-7">
-                            <!-- Video -->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile bg-gradient-primary-to-secondary center">
-                                    <iframe width="600" height="315" src="https://www.youtube.com/embed/3tWDpgpmOns" title="Isle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <project-header-component projectTitle="Infinite Isle"
+                    projectSummary="A game, I designed to show off a way to procedurally generate one-box Sokoban puzzles."
+                    downloadLink="assets\Downloads\InfiniteIsle.zip"
+                    videoLink="https://www.youtube.com/embed/3tWDpgpmOns"
+                    videoTitle="Isle"
+                ></project-header-component>
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
                         <!-- Project Objective-->

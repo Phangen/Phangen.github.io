@@ -18,6 +18,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/myNav.js" type="text/javascript" defer></script>
         <script src="js/myFooter.js" type="text/javascript" defer></script>
+        <script src="js/projectHelpers.js" type="text/javascript" defer></script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -25,30 +26,11 @@
             <navigation-component></navigation-component>
             <!-- Page Content-->
             <header class="py-5">
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
-                                <!-- Project Name-->
-                                <h1 class="display-3 fw-bolder"><span class="text-gradient d-inline">Mobile Game Speedrun</span></h1>
-                                <!-- Project Name-->
-                                <div class="fs-3 fw-light text-muted mb-5">A challenge to see how fast I could create a runner style mobile game.</div>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <div class="card shadow border-0 rounded-4 mb-5 px-5 py-3 me-sm-3 fs-6 fw-bolder">Download Unavailable</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-7">
-                            <!-- Video -->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile bg-gradient-primary-to-secondary center">
-                                    <iframe width="600" height="315" src="https://www.youtube.com/embed/Z6WGgT1BZVE" title="Runner Mobile Game Speedrun" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <project-header-component projectTitle="Mobile Game Speedrun"
+                    projectSummary="A challenge to see how fast I could create a runner style mobile game."
+                    videoLink="https://www.youtube.com/embed/Z6WGgT1BZVE"
+                    videoTitle="Runner Mobile Game Speedrun"
+                ></project-header-component>
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
                         <!-- Project Objective-->
