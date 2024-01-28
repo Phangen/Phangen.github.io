@@ -40,30 +40,20 @@
                             <section>
                                 <h2 class="text-secondary fw-bolder mb-4">Project Objective</h2>
                                 
-                                <div class="card shadow border-0 rounded-4 mb-5">
-                                    <div class="card-body p-5">
-                                        <div class="row align-items-center gx-5">
-                                            <div>
-                                                Create a firework simulation to demonstrate a well-rounded understanding of the C as a language. 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <project-body-main>
+                                    Create a firework simulation to demonstrate a well-rounded understanding of the C as a language. 
+                                </project-body-main>
+
                             </section>
                         <!-- How To Use-->
                         <!-- Purpose: explain how to use this project -->
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">How To Use</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            Unzip the project zip into a folder in a Linux environment. Once unzipped there should be the Lab4 executable and several example firework files (.fwx) to serve as input. Then all you need to do as shown in the video above is execute the firework simulation with a given file with a command like “lab4 stars.fwx.” This will open a visual of the fireworks being shot off.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                Unzip the project zip into a folder in a Linux environment. Once unzipped there should be the Lab4 executable and several example firework files (.fwx) to serve as input. Then all you need to do as shown in the video above is execute the firework simulation with a given file with a command like “lab4 stars.fwx.” This will open a visual of the fireworks being shot off.
+                            </project-body-main>
+
                         </section>
                         <!-- Key Features-->
                         <!-- Purpose: Lists the major components, techniques, and methodologies used in the project. 
@@ -72,53 +62,39 @@
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">Key Features</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            <p>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-light p-4 rounded-4">
-                                                        <div class="text-primary fw-bolder mb-2 fs-4">Reading of input files</div>
-                                                        
-                                                        If you want to make your own firework shows you can always create your own fwx files. FWX files are text files with each line representing all the data necessary to launch a firework in the simulation. An example valid fwx line looks like the following line: <br>
-                                                <br>        
-                                                &emsp;0.0 	&emsp;F70A87BA	&emsp;7.209	&emsp;-140.0	&emsp;39.7	 &emsp;113.44 <br>
-                                                <br>
-                                                The data in order from left to right are the time the firework is launched, the firework code (explained in detail later), the fuse duration, the initial x position where the firework is launched from (0.0 being the center of the screen), the x velocity and the y velocity. <br>
-                                                <br>
-                                                The firework code is made up of hexadecimal values that represent qualities not related to the firework’s motion. The code is structured like this:<br>
-                                                <br>        
-                                                &emsp;E C DD M YYY <br>
-                                                <br>
-                                                E is 3 Boolean bits that represent from left to right whether the fireworks have a star effect, whether it has a flash effect, and whether it has a boom sound effect. The last bit of E is not used currently and remains for cleanness of the firework code’s structure. The next 4 bits are the Color of the firework.  And the rest of the firework data is the day, month, and year the firework was made. This is used to simulate data necessary if the firework experiences an issue such as hitting the ground without going off. This data will output in the little console at the bottom of the visual output. <br>
-                                                <br>
-                                                Putting in values for any of these numbers could result in a firework that does not explode properly such as seen in the example “unsafe” FWX file which shows two fireworks exploding at launch and one hitting the ground, so build fireworks carefully!
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-light p-4 rounded-4">
-                                                        <div class="text-primary fw-bolder mb-2 fs-4">Memory management</div>
-                                                        An implementation of a Linked lists that is used to read the fireworks. We can then use the list nodes to launch them in time according to the launch time present for that firework in the fwx file. The implementation is complete with malloc and releasing of list nodes which consequently frees the information related to fireworks.
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-light p-4 rounded-4">
-                                                        <div class="text-primary fw-bolder mb-2 fs-4">Physics</div>
-                                                        All the velocity and position numbers are plugged into the basic equations of motion to find the next position of the firework using real-time.  These calculations are done on each update tick (delta T) determined by provided animation library along with the y velocity (VT) of fireworks in the input. Equations used for physics are: <br>
-                                                        &emsp; o &nbsp;	X’ = X + VX *dt <br> 
-                                                        &emsp; o &nbsp;	Y’ = Y + VY * dt + 0.5 * GRAVITY * dt * dt <br>
-                                                        &emsp; o &nbsp;	VY = VY + GRAVITY * dt <br>
-                                                        GRAVITY = -32.17405 feet per second per second
-                                                    </div>
-                                                </div>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                <project-body-dark>
+                                    <div class="text-primary fw-bolder mb-2 fs-4">Reading of input files</div>        
+                                    If you want to make your own firework shows you can always create your own fwx files. FWX files are text files with each line representing all the data necessary to launch a firework in the simulation. An example valid fwx line looks like the following line: <br>
+                                    <br>        
+                                    &emsp;0.0 	&emsp;F70A87BA	&emsp;7.209	&emsp;-140.0	&emsp;39.7	 &emsp;113.44 <br>
+                                    <br>
+                                    The data in order from left to right are the time the firework is launched, the firework code (explained in detail later), the fuse duration, the initial x position where the firework is launched from (0.0 being the center of the screen), the x velocity and the y velocity. <br>
+                                    <br>
+                                    The firework code is made up of hexadecimal values that represent qualities not related to the firework’s motion. The code is structured like this:<br>
+                                    <br>        
+                                    &emsp;E C DD M YYY <br>
+                                    <br>
+                                    E is 3 Boolean bits that represent from left to right whether the fireworks have a star effect, whether it has a flash effect, and whether it has a boom sound effect. The last bit of E is not used currently and remains for cleanness of the firework code’s structure. The next 4 bits are the Color of the firework.  And the rest of the firework data is the day, month, and year the firework was made. This is used to simulate data necessary if the firework experiences an issue such as hitting the ground without going off. This data will output in the little console at the bottom of the visual output. <br>
+                                    <br>
+                                    Putting in values for any of these numbers could result in a firework that does not explode properly such as seen in the example “unsafe” FWX file which shows two fireworks exploding at launch and one hitting the ground, so build fireworks carefully!
+                                </project-body-dark>
+                                <br>
+                                <project-body-dark>
+                                    <div class="text-primary fw-bolder mb-2 fs-4">Memory management</div>
+                                    An implementation of a Linked lists that is used to read the fireworks. We can then use the list nodes to launch them in time according to the launch time present for that firework in the fwx file. The implementation is complete with malloc and releasing of list nodes which consequently frees the information related to fireworks.
+                                </project-body-dark>
+                                <br>
+                                <project-body-dark>
+                                    <div class="text-primary fw-bolder mb-2 fs-4">Physics</div>
+                                    All the velocity and position numbers are plugged into the basic equations of motion to find the next position of the firework using real-time.  These calculations are done on each update tick (delta T) determined by provided animation library along with the y velocity (VT) of fireworks in the input. Equations used for physics are: <br>
+                                    &emsp; o &nbsp;	X’ = X + VX *dt <br> 
+                                    &emsp; o &nbsp;	Y’ = Y + VY * dt + 0.5 * GRAVITY * dt * dt <br>
+                                    &emsp; o &nbsp;	VY = VY + GRAVITY * dt <br>
+                                    GRAVITY = -32.17405 feet per second per second
+                                </project-body-dark>
+                            </project-body-main>
+
                         </section>
                         <!-- Technologies Used:-->
                         <!-- Purpose: Enumerates the programming languages, libraries, frameworks, and tools that were utilized during the project.
@@ -126,31 +102,20 @@
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">Technologies Used</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                <div class="bg-light p-4 rounded-4">
-                                                    C
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                <div class="bg-light p-4 rounded-4">
-                                                    Make (in the creation and compilation of the various .c files)
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                <div class="bg-light p-4 rounded-4">
-                                                    Library for text-based visuals provided by Professor Neil Kirby.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                <project-body-dark>
+                                    C
+                                </project-body-dark>
+                                <br>
+                                <project-body-dark>
+                                    Make (in the creation and compilation of the various .c files)
+                                </project-body-dark>
+                                <br>
+                                <project-body-dark>
+                                    Library for text-based visuals provided by Professor Neil Kirby.
+                                </project-body-dark>
+                            </project-body-main>
+
                         </section>
                         <!-- Technologies Used:-->
                         <!-- Purpose: Reflects on the knowledge and experience gained from the project.
@@ -159,33 +124,21 @@
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">Key Takeaways</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            This project was the first “big” computer science project I ever worked on. After the many hours of working with pointers for the first time in such a big project I ended up with a project that I was happy enough to show off to others. I believe this project has completed is objective as a class assignment to give me a good overview of C as a language right before delving into even lower levels of programming languages.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                This project was the first “big” computer science project I ever worked on. After the many hours of working with pointers for the first time in such a big project I ended up with a project that I was happy enough to show off to others. I believe this project has completed is objective as a class assignment to give me a good overview of C as a language right before delving into even lower levels of programming languages.
+                            </project-body-main>
+
                         </section>
                         <!-- Attributions:-->
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">Attributions</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                <div class="bg-light p-4 rounded-4">
-                                                    Professor Neil Kirby for the firework visual libraries and assignment details
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                <project-body-dark>
+                                    Professor Neil Kirby for the firework visual libraries and assignment details
+                                </project-body-dark>
+                            </project-body-main>
+
                         </section>
                     </div>
                 </div>

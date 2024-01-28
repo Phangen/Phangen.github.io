@@ -18,6 +18,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/myNav.js" type="text/javascript" defer></script>
         <script src="js/myFooter.js" type="text/javascript" defer></script>
+        <script src="js/projectHelpers.js" type="text/javascript" defer></script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -42,107 +43,75 @@
                         <section>
                             <h2 class="text-secondary fw-bolder mb-4">Project Objective</h2>
                             
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div>
-                                            Using WebGL Import and render an animated textured 3D model. 
-                                            Then to prove proficeny in WEBGL rendering, spice up the scene the object is included in with lighting, a cubemap skybox, and reflections.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <project-body-main>
+                                Using WebGL Import and render an animated textured 3D model. 
+                                Then to prove proficeny in WEBGL rendering, spice up the scene the object is included in with lighting, a cubemap skybox, and reflections.
+                            </project-body-main>
+
                         </section>
                     <!-- How To Use-->
                     <!-- Purpose: explain how to use this project -->
                     <section>
                         <h2 class="text-secondary fw-bolder mb-4">How To Use</h2>
                         
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div>
-                                        <div class="text-primary fw-bolder mb-2 fs-4">HTML Buttons</div>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                The texture rendered which can change to Cube map, Regular texture, a normal color mapping, and a mix of texture lighting and enviroment mapping, <br>
-                                                How the objects are drawn, lines or faces. <br>
-                                                Whether the skybox is loaded or not. <br>
-                                            </div>
-                                        </div>
+                        <project-body-main>
+                            <project-body-dark>
+                                <div class="text-primary fw-bolder mb-2 fs-4">HTML Buttons</div>
+                                The texture rendered which can change to Cube map, Regular texture, a normal color mapping, and a mix of texture lighting and enviroment mapping, <br>
+                                How the objects are drawn, lines or faces. <br>
+                                Whether the skybox is loaded or not. <br>
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <div class="text-primary fw-bolder mb-2 fs-4">User Input</div>
+                                You can move the magnemite and various other aspects of the Scene per the keys indicated below. <br>
+                                <br>
+                                <project-body-bright>
+                                    <div class="text-secondary fw-bolder mb-2 fs-5">Magnemite Movement keys</div>
+                                    ‘w’ - move magnemite to his left (intially away from camera) <br>
+                                    ‘a’-  move magnemite backward (intially left from camera) <br>
+                                    ‘s’-  move magnemite to his right (intially toward from camera) <br>
+                                    ‘d’-  move magnemite forward (intially right from camera)
+                                </project-body-bright>
+                                <br>
+                                <project-body-bright>
+                                    <div class="text-secondary fw-bolder mb-2 fs-5">Camera Movement keys</div>
+                                    ‘r’-  roll camera clockwise <br>
+                                    ‘R’-  roll camera counter clockwise <br>
+                                    ‘y’-  yaw camera clockwise <br>
+                                    ‘Y’-  yaw camera counter clockwise <br>
+                                    ‘p’-  pitch camera clockwise <br>
+                                    ‘P’-  pitch camera counter clockwise
+                                </project-body-bright>
+                                <br>
+                                <project-body-bright>
+                                    <div class="text-secondary fw-bolder mb-2 fs-5">Light Movement keys</div>
+                                    ‘1’ - move light up globally <br>
+                                    ‘2’-  move light down globally <br>
+                                    ‘3’-  move light left globally <br>
+                                    ‘4’-  move light right globally <br>
+                                    ‘5’-  move light forward globally <br>
+                                    ‘6’-  move light backward globally
+                                </project-body-bright>
+                                <br>
+                                <project-body-bright>
+                                    <div class="text-secondary fw-bolder mb-2 fs-5">Transform keys</div>
+                                    Because I found it helpful for examining the scene. You can also change from rotating the camera locally (around it's center) to rotating around 0,0. <br>
+                                    To do this press "G" and then the roll, pitch and yaw keys will then have changed functionality. <br>
+                                    <br>
 
-                                        <br>  
-                                        
-                                   
-                                        <div class="text-primary fw-bolder mb-2 fs-4">User Input</div>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
+                                    ‘g’-  turn off global transformations for Camera <br>
+                                    ‘G’-  turn on global transformations for Camera
+                                </project-body-bright>
+                                <br>
+                                <project-body-bright>
+                                    <div class="text-secondary fw-bolder mb-2 fs-5">Light Enabling Keys</div>
+                                    ‘l’-  turn light sphere off <br>
+                                    ‘L’-  turn light sphere on
+                                </project-body-bright>
+                            </project-body-dark>
+                        </project-body-main>
 
-                                                You can move the magnemite and various other aspects of the Scene per the keys indicated below. <br>
-                                                <br>
-                                                <div class="text-secondary fw-bolder mb-2 fs-5">Magnemite Movement keys</div>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-white p-4 rounded-4">
-                                                        ‘w’ - move magnemite to his left (intially away from camera) <br>
-                                                        ‘a’-  move magnemite backward (intially left from camera) <br>
-                                                        ‘s’-  move magnemite to his right (intially toward from camera) <br>
-                                                        ‘d’-  move magnemite forward (intially right from camera)
-                                                    </div>
-                                                </div>
-                                                <br>
-
-                                                <div class="text-secondary fw-bolder mb-2 fs-5">Camera Movement keys</div>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-white p-4 rounded-4">
-                                                        ‘r’-  roll camera clockwise <br>
-                                                        ‘R’-  roll camera counter clockwise <br>
-                                                        ‘y’-  yaw camera clockwise <br>
-                                                        ‘Y’-  yaw camera counter clockwise <br>
-                                                        ‘p’-  pitch camera clockwise <br>
-                                                        ‘P’-  pitch camera counter clockwise
-                                                    </div>
-                                                </div>
-                                                <br>
-
-                                                <div class="text-secondary fw-bolder mb-2 fs-5">Light Movement keys</div>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-white p-4 rounded-4">
-                                                        ‘1’ - move light up globally <br>
-                                                        ‘2’-  move light down globally <br>
-                                                        ‘3’-  move light left globally <br>
-                                                        ‘4’-  move light right globally <br>
-                                                        ‘5’-  move light forward globally <br>
-                                                        ‘6’-  move light backward globally
-                                                    </div>
-                                                </div>
-                                                <br>
-
-                                                <div class="text-secondary fw-bolder mb-2 fs-5">Transform keys</div>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-white p-4 rounded-4">
-                                                        Because I found it helpful for examining the scene. You can also change from rotating the camera locally (around it's center) to rotating around 0,0. <br>
-                                                        To do this press "G" and then the roll, pitch and yaw keys will then have changed functionality. <br>
-                                                        <br>
-
-                                                        ‘g’-  turn off global transformations for Camera <br>
-                                                        ‘G’-  turn on global transformations for Camera
-                                                    </div>
-                                                </div>
-                                                <br>
-
-                                                <div class="text-secondary fw-bolder mb-2 fs-5">Light Enabling Keys</div>
-                                                <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                                    <div class="bg-white p-4 rounded-4">
-                                                        ‘l’-  turn light sphere off <br>
-                                                        ‘L’-  turn light sphere on
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </section>
                     <!-- Key Features-->
                     <!-- Purpose: Lists the major components, techniques, and methodologies used in the project. 
@@ -151,55 +120,42 @@
                     <section>
                         <h2 class="text-secondary fw-bolder mb-4">Key Features</h2>
 
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div class="text-secondary fw-bolder mb-2 fs-5">3D object rendering</div>
-                                    <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            Using X, Y and Z coordinates we can create vertices which can be connected via designated triangles. 
-                                            These vertices and polygons result in our final image. 
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="text-secondary fw-bolder mb-2 fs-5">Lighting</div>
-                                    <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            The scene above uses the basic calculations for <a href="https://en.wikipedia.org/wiki/Computer_graphics_lighting#:~:text=look.%5B9%5D-,Lighting%20interactions,-%5Bedit%5D">Diffuse, Ambient, and Specular lighting</a>. 
-                                            This results in a primitive implementation of the way lighting works in real life. 
-                                            To achieve this, we have a light source represented by a little white sphere. 
-                                            Then based on the location of this one light source we can change the color of various fragments of our model to end up with our final lit model.
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="text-secondary fw-bolder mb-2 fs-5">Animation</div>
-                                    <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            The whole model moves on a Parametric equation that is essentially just a parabola that goes back and forth to emulate what I would describe as a levitating bounciness. 
-                                            The magnets just rotate. 
-                                            Together this shows the hierarchical transformations as the whole model is moving the magnets have two layers of transformations applied to them.
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="text-secondary fw-bolder mb-2 fs-5">Skybox and Reflections</div>
-                                    <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            We have a <a href="https://en.wikipedia.org/wiki/Cube_mapping#:~:text=no%20performance%20cost.-,Skylight%20illumination,-%5Bedit%5D">cube map</a> 
-                                            which we use to both create a skybox and map reflections onto on object as described in the linked Wikipedia page. 
-                                            This is one of the many ways to emulate sky and reflections as discovered by artists and computer scientists and while being one of the simplest of them computationally still ends up with a good reflection effect on single objects like our above scene.
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="text-secondary fw-bolder mb-2 fs-5">Texture</div>
-                                    <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            Using <a href="https://en.wikipedia.org/wiki/Texture_mapping#:~:text=External%20links-,Texture%20mapping,-31%20languages">texture mapping</a>  
-                                            of vertices to an image containing the desired textures we can color the vertices of our 3D model which results in the model have the colored pattern we want on our final model. 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <project-body-main>
+                            <project-body-dark>
+                                <div class="text-secondary fw-bolder mb-2 fs-5">3D object rendering</div>
+                                Using X, Y and Z coordinates we can create vertices which can be connected via designated triangles. 
+                                These vertices and polygons result in our final image. 
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <div class="text-secondary fw-bolder mb-2 fs-5">Lighting</div>
+                                The scene above uses the basic calculations for <a href="https://en.wikipedia.org/wiki/Computer_graphics_lighting#:~:text=look.%5B9%5D-,Lighting%20interactions,-%5Bedit%5D">Diffuse, Ambient, and Specular lighting</a>. 
+                                This results in a primitive implementation of the way lighting works in real life. 
+                                To achieve this, we have a light source represented by a little white sphere. 
+                                Then based on the location of this one light source we can change the color of various fragments of our model to end up with our final lit model.
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <div class="text-secondary fw-bolder mb-2 fs-5">Animation</div>
+                                The whole model moves on a Parametric equation that is essentially just a parabola that goes back and forth to emulate what I would describe as a levitating bounciness. 
+                                The magnets just rotate. 
+                                Together this shows the hierarchical transformations as the whole model is moving the magnets have two layers of transformations applied to them.
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <div class="text-secondary fw-bolder mb-2 fs-5">Skybox and Reflections</div>
+                                We have a <a href="https://en.wikipedia.org/wiki/Cube_mapping#:~:text=no%20performance%20cost.-,Skylight%20illumination,-%5Bedit%5D">cube map</a> 
+                                which we use to both create a skybox and map reflections onto on object as described in the linked Wikipedia page. 
+                                This is one of the many ways to emulate sky and reflections as discovered by artists and computer scientists and while being one of the simplest of them computationally still ends up with a good reflection effect on single objects like our above scene.
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <div class="text-secondary fw-bolder mb-2 fs-5">Texture</div>
+                                Using <a href="https://en.wikipedia.org/wiki/Texture_mapping#:~:text=External%20links-,Texture%20mapping,-31%20languages">texture mapping</a>  
+                                of vertices to an image containing the desired textures we can color the vertices of our 3D model which results in the model have the colored pattern we want on our final model. 
+                            </project-body-dark>
+                        </project-body-main>
+
                     </section>
                     <!-- Technologies Used:-->
                     <!-- Purpose: Enumerates the programming languages, libraries, frameworks, and tools that were utilized during the project.
@@ -207,31 +163,21 @@
                     <section>
                         <h2 class="text-secondary fw-bolder mb-4">Technologies Used</h2>
                         
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                WEBGL
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                GLSL (Shading Language)
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                JavaScript
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <project-body-main>
+                            <project-body-dark>
+                                WEBGL
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                GLSL (Shading Language)
+                                
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                JavaScript
+                            </project-body-dark>
+                        </project-body-main>
+
                     </section>
                     <!-- Technologies Used:-->
                     <!-- Purpose: Reflects on the knowledge and experience gained from the project.
@@ -240,41 +186,26 @@
                     <section>
                         <h2 class="text-secondary fw-bolder mb-4">Key Takeaways</h2>
                         
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div>
-                                        This was an accumulation of all the WebGL knowledge I learned over a semester of learning. 
-                                        This project proved I could do a lot more complicated 3D model manipulation and animation than I thought I was capable of at the start of the semester. I went from drawing colored squares, to drawing 3D primitives, and finally finished off with a fully rendered scene with animation.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <project-body-main>
+                            This was an accumulation of all the WebGL knowledge I learned over a semester of learning. 
+                            This project proved I could do a lot more complicated 3D model manipulation and animation than I thought I was capable of at the start of the semester. I went from drawing colored squares, to drawing 3D primitives, and finally finished off with a fully rendered scene with animation.
+                        </project-body-main>
+
                     </section>
                     <!-- Attributions:-->
                     <section>
                         <h2 class="text-secondary fw-bolder mb-4">Attributions</h2>
                         
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <a href="https://rigmodels.com/model.php?view=Magnemite-3d-model__B1YHOAG5AQCGC24XXTW59IQ0K&searchkeyword=magnemite&manualsearch=1">Magnemite Model</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="col text-center text-lg-start mb-5 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <a href="https://humus.name/index.php?page=Textures&start=8#:~:text=Ansia%20Camping%2C%20Lycksele.-,Lycksele,-Friday%2C%20February%2027">Cubmap Image</a>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <project-body-main>
+                            <project-body-dark>
+                                <a href="https://rigmodels.com/model.php?view=Magnemite-3d-model__B1YHOAG5AQCGC24XXTW59IQ0K&searchkeyword=magnemite&manualsearch=1">Magnemite Model</a>
+                            </project-body-dark>
+                            <br>
+                            <project-body-dark>
+                                <a href="https://humus.name/index.php?page=Textures&start=8#:~:text=Ansia%20Camping%2C%20Lycksele.-,Lycksele,-Friday%2C%20February%2027">Cubmap Image</a>
+                            </project-body-dark>
+                        </project-body-main>
+
                     </section>
         </main>
         <!-- Footer-->
