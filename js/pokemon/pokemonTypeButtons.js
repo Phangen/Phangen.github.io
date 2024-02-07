@@ -1,6 +1,5 @@
-import {getCurrentTypeInfo} from "./readTypeData.js";
+import {getCurrentTypeInfo, allTypeNames} from "./readTypeData.js";
 
-const typeEff = ["Takes 4x From: ","Takes 2x From: ","Takes 1x From: ","Takes 1/2x From: ","Takes 1/4x From: ","Immune to: "]
 const typeAmount = 18;
 const typeContainer = document.getElementById('TypeInfoContainer');
 
@@ -17,14 +16,32 @@ for (let i = 0; i < typeAmount; i++) {
  *          ["Takes 4x From: ","Takes 2x From: ","Takes 1x From: ","Takes 1/2x From: ","Takes 1/4x From: ","Immune to: "]
  */
 function updateTypeOutput(typeDataArray) {
+  
+  moveAllTypesToLoc(typeDataArray[0], "4xPTC");
+  moveAllTypesToLoc(typeDataArray[1], "2xPTC");
+  moveAllTypesToLoc(typeDataArray[2], "1xPTC");
+  moveAllTypesToLoc(typeDataArray[3], "1/2xPTC");
+  moveAllTypesToLoc(typeDataArray[4], "1/4xPTC");
+  moveAllTypesToLoc(typeDataArray[5], "0xPTC");
+  /*
   let htmlOutput = typeEff[0] + typeDataArray[0];
   
   for (let i = 1; i < typeDataArray.length; i++) {
     htmlOutput += "<br>" + typeEff[i] + typeDataArray[i];
   }
   typeContainer.innerHTML = htmlOutput;
+  */
 }
 
+function moveAllTypesToLoc(effArray, locToMoveTo){
+  effArray.forEach((typeName) => {
+    document.getElementById(locToMoveTo).append(document.getElementById(getTypeCardIDFromString(typeName)));
+  });
+}
+
+function getTypeCardIDFromString(typeName) {
+  return "ptc"+[allTypeNames.indexOf(typeName)];
+}
 /**
  * Disables or enables all toggle buttons that are not currently pressed to true.
  * 

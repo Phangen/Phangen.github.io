@@ -53,7 +53,7 @@ export function getCurrentTypeInfo(typeNameArray) {
 
 var allTypesData;
 var currentType;
-var allTypeNames;
+export var allTypeNames;
 
 getJson('assets/pokemon/typeData.json').then((json) => {
     console.log(json);
