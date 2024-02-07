@@ -15,7 +15,7 @@ class PokemonType {
             this.notVeryEff = typeJson[this.typeName].notVeryEff;
             this.immune = typeJson[this.typeName].immune;
         }
-        else 
+        else // constructor to build dual type pokemon when given two types
         {
             let typeOne = typeJson;
 
@@ -28,15 +28,25 @@ class PokemonType {
         }        
 
     }
-
-
-
 }
+
+export function getCurrentTypeInfo(typeOneName, typeTwoName) {
+    //gets normal type effectivness by taking all of the other type effectivness and figuring out which of the remaining types are not included
+    let abnormalEff = ArrayLogic.union(ArrayLogic.union(ArrayLogic.union(currentType.twiceSuperEff, currentType.superEff), ArrayLogic.union(currentType.notVeryEff, currentType.twiceNotVeryEff)), currentType.immune);
+    let normalEff = ArrayLogic.difference(allTypeNames,abnormalEff)
+    
+    return [currentType.twiceSuperEff, currentType.superEff, normalEff, currentType.notVeryEff, currentType.twiceNotVeryEff, currentType.immune];
+}
+
+var allTypesData;
+var currentType;
+var allTypeNames;
 
 getJson('assets/pokemon/typeData.json').then((json) => {
     console.log(json);
     console.log(json.types)
-    let typeArray = [];
+    allTypesData = [];
+    allTypeNames = [];
     json.types.forEach((element) => {
         console.log(element);
         let pokeType = new PokemonType(element);
@@ -44,9 +54,12 @@ getJson('assets/pokemon/typeData.json').then((json) => {
         console.log(pokeType.superEff);
         console.log(pokeType.notVeryEff);
         console.log(pokeType.immune);
-        typeArray.push(pokeType);
+        allTypesData.push(pokeType);
+        allTypeNames.push(pokeType.typeName);
+        currentType = pokeType;
     });
-    let testDualType = new PokemonType(typeArray[4], typeArray[2]);
+    let testDualType = new PokemonType(allTypesData[4], allTypesData[2]);
+    currentType = testDualType;
     console.log(testDualType.typeName);
     console.log(testDualType.twiceSuperEff);
     console.log(testDualType.superEff);

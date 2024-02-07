@@ -1,23 +1,28 @@
 <style>
+    element.style{
+        --type-color: white
+    }
     .pButton {
-        border: none;
-        background-color: #5e86dd;
-        color: white;
+        border: 2px solid var(--type-color);
+        background-color: transparent;
+        color: black;
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         transition-duration: 0.4s;
+        opacity: 0.75;
     }
     .pButton[aria-pressed="true"] {
-        background-color: #DDA15E;
+        background-color: var(--type-color);
+        border: none;
+        color: white;
     }
     .pButton:hover {
-        background-color: #b78e5e;
-        color: white;
+        opacity: 1;
     }
 </style>
 <button class="pButton" type="button" aria-pressed="true">  
-    Test
+    <slot></slot>
 </button> 

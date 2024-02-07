@@ -1,28 +1,33 @@
 const buttTmp = document.createElement('template');
 buttTmp.innerHTML = `
-    <style>
-        .pButton {
-            border: none;
-            background-color: #5e86dd;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            transition-duration: 0.4s;
-        }
-        .pButton[aria-pressed="true"] {
-            background-color: #DDA15E;
-        }
-        .pButton:hover {
-            background-color: #b78e5e;
-            color: white;
-        }
-    </style>
-    <button class="pButton" type="button" aria-pressed="true">  
-    Test
-    </button>  
+  <style>
+  element.style{
+      --type-color: white
+  }
+  .pButton {
+      border: 2px solid var(--type-color);
+      background-color: transparent;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      opacity: 0.75;
+  }
+  .pButton[aria-pressed="true"] {
+      background-color: var(--type-color);
+      border: none;
+      color: white;
+  }
+  .pButton:hover {
+      opacity: 1;
+  }
+  </style>
+  <button class="pButton" type="button" aria-pressed="true">  
+  <slot></slot>
+  </button> 
   `;
 
 

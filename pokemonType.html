@@ -21,7 +21,7 @@
         <script src="js/HTMLElement/projectHelpers.js" type="text/javascript" defer></script>
         <script src="js/HTMLElement/myPokemonButton.js" type="text/javascript" defer></script>
         <script src="js/pokemon/readTypeData.js" type="module" defer></script>
-        <script src="js/pokemon/pokemonTypeButtons.js" type="text/javascript" defer></script>
+        <script src="js/pokemon/pokemonTypeButtons.js" type="module" defer></script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -29,7 +29,45 @@
             <navigation-component></navigation-component>
             <!-- Page Content-->
             <header class="py-5">
-                <pokemon-button></pokemon-button>
+                <style>
+                    .parent 
+                    {
+                        display: inline-flex;
+                        margin: auto;
+                        width: 40%;
+                    }
+                    .child 
+                    {
+                        margin:auto;
+                        width: 5%;
+                    }
+                </style>
+                <div class="parent">
+                    <div class="child">
+                        <pokemon-button id="p0" style="--type-color: #A8A878">Normal</pokemon-button>
+                        <pokemon-button id="p1" style="--type-color: #F08030">Fire</pokemon-button>
+                        <pokemon-button id="p2" style="--type-color: #6890F0">Water</pokemon-button>
+                        <pokemon-button id="p3" style="--type-color: #F8D030">Electric</pokemon-button>
+                        <pokemon-button id="p4" style="--type-color: #78C850">Grass</pokemon-button>
+                        <pokemon-button id="p5" style="--type-color: #98D8D8">Ice</pokemon-button>
+                        <pokemon-button id="p6" style="--type-color: #C03028">Fighting</pokemon-button>
+                        <pokemon-button id="p7" style="--type-color: #A040A0">Poison</pokemon-button>
+                        <pokemon-button id="p8" style="--type-color: #E0C068">Ground</pokemon-button>
+                        <pokemon-button id="p9" style="--type-color: #A890F0">Flying</pokemon-button>
+                        <pokemon-button id="p10" style="--type-color: #F85888">Psychic</pokemon-button>
+                        <pokemon-button id="p11" style="--type-color: #A8B820">Bug</pokemon-button>
+                        <pokemon-button id="p12" style="--type-color: #B8A038">Rock</pokemon-button>
+                        <pokemon-button id="p13" style="--type-color: #705898">Ghost</pokemon-button>
+                        <pokemon-button id="p14" style="--type-color: #7038F8">Dragon</pokemon-button>
+                        <pokemon-button id="p15" style="--type-color: #705848">Dark</pokemon-button>
+                        <pokemon-button id="p16" style="--type-color: #B8B8D0">Steel</pokemon-button>
+                        <pokemon-button id="p17" style="--type-color: #EE99AC">Fairy</pokemon-button>
+                    </div>
+                    <div id="TypeInfoContainer" class="child">
+                        super
+                    </div>
+                </div>
+                
             </header>
             
         </main>
