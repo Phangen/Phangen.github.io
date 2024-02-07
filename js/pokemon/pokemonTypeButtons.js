@@ -18,8 +18,12 @@ function updateTypeOutput(typeDataArray) {
   typeContainer.innerHTML = htmlOutput;
 }
 
-function setFalseButtonsDisables(){
-
+function setFalseButtonsDisabled(updatedStatus){
+  toggleButtonArray.forEach((toggle) => {
+    if (toggle.getAttribute('aria-pressed') === 'false') {
+      toggle.disabled = updatedStatus;
+    }
+  });
 }
 
 var numTypesSelected = 0;
@@ -27,21 +31,22 @@ var numTypesSelected = 0;
 toggleButtonArray.forEach((toggle) => 
 {
   toggle.addEventListener('click', (e) => {  
-    var pressed = e.target.getAttribute('aria-pressed') === 'true';
+    var pressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
 
-    if(pressed && numTypesSelected > 1) {
+    if(pressed && numTypesSelected > 0) {
       numTypesSelected--;
-      e.target.setAttribute('aria-pressed', String(!pressed));
-      console.log(pressed);
+      e.currentTarget.setAttribute('aria-pressed', String(!pressed));
       updateTypeOutput(getCurrentTypeInfo());
+      setFalseButtonsDisabled(false);
     } else if (numTypesSelected < 2) {
       numTypesSelected++;
-      e.target.setAttribute('aria-pressed', String(!pressed));
-      console.log(pressed);
-      updateTypeOutput(getCurrentTypeInfo());    
+      e.currentTarget.setAttribute('aria-pressed', String(!pressed));
+      updateTypeOutput(getCurrentTypeInfo());
+      if(numTypesSelected === 2) {
+        setFalseButtonsDisabled(true);
+      }    
     }
-
-    console.log(numTypesSelected);
+    
 
   });
 });

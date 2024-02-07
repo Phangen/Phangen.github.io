@@ -24,6 +24,10 @@ buttTmp.innerHTML = `
   .pButton:hover {
       opacity: 1;
   }
+  .pButton:disabled {
+      cursor: not-allowed;
+      background-color: #37373780;
+  }
   </style>
   <button class="pButton" type="button" aria-pressed="false">  
   <slot></slot>

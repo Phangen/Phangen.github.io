@@ -38,6 +38,10 @@ export function getCurrentTypeInfo(typeOneName, typeTwoName) {
     return [currentType.twiceSuperEff, currentType.superEff, normalEff, currentType.notVeryEff, currentType.twiceNotVeryEff, currentType.immune];
 }
 
+export function getAllTypeNames(){
+    return allTypeNames;
+}
+
 var allTypesData;
 var currentType;
 var allTypeNames;
