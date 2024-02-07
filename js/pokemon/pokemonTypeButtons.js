@@ -9,6 +9,13 @@ for (let i = 0; i < typeAmount; i++) {
   toggleButtonArray.push(document.getElementById("p" + i).shadowRoot.querySelector('[aria-pressed]'));
 }
 
+/**
+ * Updates the output of the type calculator with our current selected type information.
+ * 
+ * @param {Array of Array of Strings} typeDataArray - the data of the type we are outputing to the html. 
+ *      Formated like the following: 
+ *          ["Takes 4x From: ","Takes 2x From: ","Takes 1x From: ","Takes 1/2x From: ","Takes 1/4x From: ","Immune to: "]
+ */
 function updateTypeOutput(typeDataArray) {
   let htmlOutput = typeEff[0] + typeDataArray[0];
   
@@ -18,6 +25,11 @@ function updateTypeOutput(typeDataArray) {
   typeContainer.innerHTML = htmlOutput;
 }
 
+/**
+ * Disables or enables all toggle buttons that are not currently pressed to true.
+ * 
+ * @param {bool} updatedStatus - State to set the currently unselected buttons as
+ */
 function setFalseButtonsDisabled(updatedStatus){
   toggleButtonArray.forEach((toggle) => {
     if (toggle.getAttribute('aria-pressed') === 'false') {
@@ -25,6 +37,8 @@ function setFalseButtonsDisabled(updatedStatus){
     }
   });
 }
+
+var currentSelectedTypes = [];
 
 var numTypesSelected = 0;
 
@@ -34,18 +48,34 @@ toggleButtonArray.forEach((toggle) =>
     var pressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
 
     if(pressed && numTypesSelected > 0) {
+      //enables all buttons if they are disabled because after this executes we no longer have 2 types selected
+      if(numTypesSelected === 2) {
+        setFalseButtonsDisabled(false);
+      }
+
       numTypesSelected--;
       e.currentTarget.setAttribute('aria-pressed', String(!pressed));
-      updateTypeOutput(getCurrentTypeInfo());
-      setFalseButtonsDisabled(false);
+      //remove type from selected types
+      //this is done by accessing the slot of our shadow dom and getting its first node which is the text
+      currentSelectedTypes.splice(currentSelectedTypes.indexOf(e.currentTarget.querySelector('slot').assignedNodes()[0].nodeValue.toLowerCase()), 1);
+
+      
+     
     } else if (numTypesSelected < 2) {
       numTypesSelected++;
       e.currentTarget.setAttribute('aria-pressed', String(!pressed));
-      updateTypeOutput(getCurrentTypeInfo());
+      
+      //we can only have upto 2 types selected at a time, so we disable all buttons not pressed
       if(numTypesSelected === 2) {
         setFalseButtonsDisabled(true);
-      }    
+      }
+      //add type to selected types
+      //this is done by accessing the slot of our shadow dom and getting its first node which is the text
+      currentSelectedTypes.push(e.currentTarget.querySelector('slot').assignedNodes()[0].nodeValue.toLowerCase());
     }
+
+    console.log(currentSelectedTypes);
+    updateTypeOutput(getCurrentTypeInfo(currentSelectedTypes));
     
 
   });
