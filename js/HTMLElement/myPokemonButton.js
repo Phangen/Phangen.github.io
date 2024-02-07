@@ -25,7 +25,7 @@ buttTmp.innerHTML = `
       opacity: 1;
   }
   </style>
-  <button class="pButton" type="button" aria-pressed="true">  
+  <button class="pButton" type="button" aria-pressed="false">  
   <slot></slot>
   </button> 
   `;
