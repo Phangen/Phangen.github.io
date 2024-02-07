@@ -39,6 +39,8 @@ function setFalseButtonsDisabled(updatedStatus){
 }
 
 var currentSelectedTypes = [];
+(getCurrentTypeInfo(currentSelectedTypes));
+
 
 var numTypesSelected = 0;
 

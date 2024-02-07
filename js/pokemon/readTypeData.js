@@ -79,5 +79,4 @@ getJson('assets/pokemon/typeData.json').then((json) => {
     console.log(testDualType.notVeryEff);
     console.log(testDualType.twiceNotVeryEff);
     console.log(testDualType.immune);
-
 });
