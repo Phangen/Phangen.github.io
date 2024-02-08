@@ -5,7 +5,7 @@ buttTmp.innerHTML = `
       --type-color: white
   }
   .pButton {
-      border: 2px solid var(--type-color);
+      border: 4px solid var(--type-color);
       background-color: transparent;
       color: black;
       padding: 15px 32px;
@@ -13,6 +13,7 @@ buttTmp.innerHTML = `
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
+      transition-duration: 0.4s;
       opacity: 0.75;
       border-radius: 12px;
       width: 125px;
@@ -20,7 +21,6 @@ buttTmp.innerHTML = `
   }
   .pButton[aria-pressed="true"] {
       background-color: var(--type-color);
-      border: none;
       color: white;
   }
   .pButton:hover {

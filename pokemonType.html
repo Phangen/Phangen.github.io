@@ -30,54 +30,60 @@
             <!-- Page Content-->
             <header class="py-5">
                 <style>
-                    .parent 
-                    {
-                        display: inline-flex;
-                        margin: auto;
-                        width: 40%;
+                    .grid-container {
+                        margin: 5%;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-gap: 20px;
                     }
-                    .child 
+                    .selectionGrid
                     {
-                        margin:auto;
-                        width: 5%;
+                        display: grid;
+                        grid-template-columns: auto auto auto auto;
                     }
                 </style>
-                <div class="parent">
-                    <div class="child">
-                        <h4>Select Type:</h4>
-                        <pokemon-button id="p0" style="--type-color: #A8A878;">Normal</pokemon-button>
-                        <pokemon-button id="p1" style="--type-color: #F08030;">Fire</pokemon-button>
-                        <pokemon-button id="p2" style="--type-color: #6890F0;">Water</pokemon-button>
-                        <pokemon-button id="p3" style="--type-color: #F8D030;">Electric</pokemon-button>
-                        <pokemon-button id="p4" style="--type-color: #78C850;">Grass</pokemon-button>
-                        <pokemon-button id="p5" style="--type-color: #98D8D8;">Ice</pokemon-button>
-                        <pokemon-button id="p6" style="--type-color: #C03028;">Fighting</pokemon-button>
-                        <pokemon-button id="p7" style="--type-color: #A040A0;">Poison</pokemon-button>
-                        <pokemon-button id="p8" style="--type-color: #E0C068;">Ground</pokemon-button>
-                        <pokemon-button id="p9" style="--type-color: #A890F0;">Flying</pokemon-button>
-                        <pokemon-button id="p10" style="--type-color: #F85888;">Psychic</pokemon-button>
-                        <pokemon-button id="p11" style="--type-color: #A8B820;">Bug</pokemon-button>
-                        <pokemon-button id="p12" style="--type-color: #B8A038;">Rock</pokemon-button>
-                        <pokemon-button id="p13" style="--type-color: #705898;">Ghost</pokemon-button>
-                        <pokemon-button id="p14" style="--type-color: #7038F8;">Dragon</pokemon-button>
-                        <pokemon-button id="p15" style="--type-color: #705848;">Dark</pokemon-button>
-                        <pokemon-button id="p16" style="--type-color: #B8B8D0;">Steel</pokemon-button>
-                        <pokemon-button id="p17" style="--type-color: #EE99AC;">Fairy</pokemon-button>
-                    </div>
-                    <div id="TypeInfoContainer" class="child">
+                <div class="grid-container">
+
+                    <div>
                         <div>
+                            <h4>Select Type:</h4>
+                            <div class="selectionGrid">
+                                <pokemon-button id="p0" style="--type-color: #A8A878;">Normal</pokemon-button>
+                                <pokemon-button id="p1" style="--type-color: #F08030;">Fire</pokemon-button>
+                                <pokemon-button id="p2" style="--type-color: #6890F0;">Water</pokemon-button>
+                                <pokemon-button id="p3" style="--type-color: #F8D030;">Electric</pokemon-button>
+                                <pokemon-button id="p4" style="--type-color: #78C850;">Grass</pokemon-button>
+                                <pokemon-button id="p5" style="--type-color: #98D8D8;">Ice</pokemon-button>
+                                <pokemon-button id="p6" style="--type-color: #C03028;">Fighting</pokemon-button>
+                                <pokemon-button id="p7" style="--type-color: #A040A0;">Poison</pokemon-button>
+                                <pokemon-button id="p8" style="--type-color: #E0C068;">Ground</pokemon-button>
+                                <pokemon-button id="p9" style="--type-color: #A890F0;">Flying</pokemon-button>
+                                <pokemon-button id="p10" style="--type-color: #F85888;">Psychic</pokemon-button>
+                                <pokemon-button id="p11" style="--type-color: #A8B820;">Bug</pokemon-button>
+                                <pokemon-button id="p12" style="--type-color: #B8A038;">Rock</pokemon-button>
+                                <pokemon-button id="p13" style="--type-color: #705898;">Ghost</pokemon-button>
+                                <pokemon-button id="p14" style="--type-color: #7038F8;">Dragon</pokemon-button>
+                                <pokemon-button id="p15" style="--type-color: #705848;">Dark</pokemon-button>
+                                <pokemon-button id="p16" style="--type-color: #B8B8D0;">Steel</pokemon-button>
+                                <pokemon-button id="p17" style="--type-color: #EE99AC;">Fairy</pokemon-button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="TypeInfoContainer">
+                        <div id="typeEff0">
                             <h4>Takes 4x from</h4>
                             <div id="4xPTC">
 
                             </div>
                         </div>
-                        <div>
+                        <div id="typeEff1">
                             <h4>Takes 2x from:</h4>
                             <div id="2xPTC">
                                 
                             </div>
                         </div>
-                        <div>
+                        <div id="typeEff2">
                             <h4>Takes 1x from:</h4>
                             <div id="1xPTC">
                                 <pokemon-type-card id="ptc0" style="--type-color: #A8A878; --type-darker: #54543c;">Normal</pokemon-type-card>
@@ -100,27 +106,26 @@
                                 <pokemon-type-card id="ptc17" style="--type-color: #EE99AC; --type-darker: #774d56;">Fairy</pokemon-type-card>
                             </div>
                         </div>
-                        <div>
+                        <div id="typeEff3">
                             <h4>Takes 1/2x from:</h4>
                             <div id="1/2xPTC">
                                 
                             </div>
                         </div>
-                        <div>
+                        <div id="typeEff4">
                             <h4>Takes 1/4x from:</h4>
                             <div id="1/4xPTC">
                                 
                             </div>
                         </div>
-                        <div>
+                        <div id="typeEff5">
                             <h4>Immune to:</h4>
                             <div id="0xPTC">
                                 
                             </div>
                         </div>
-                        
-                        
                     </div>
+                    
                 </div>
                 
             </header>

@@ -1,12 +1,21 @@
 import {getCurrentTypeInfo, allTypeNames} from "./readTypeData.js";
 
 const typeAmount = 18;
-const typeContainer = document.getElementById('TypeInfoContainer');
+const effAmount = 6;
 
 const toggleButtonArray = [];
 for (let i = 0; i < typeAmount; i++) {
   toggleButtonArray.push(document.getElementById("p" + i).shadowRoot.querySelector('[aria-pressed]'));
 }
+const effContainerElements = [];
+for (let i = 0; i < effAmount; i++) {
+  let element = document.getElementById("typeEff" + i);
+  effContainerElements.push(element);
+  //disable display by default
+  setDisplayStatus(element, 'none');
+}
+//only 1.0x eff should be visible on default which is eff num 2
+setDisplayStatus(effContainerElements[2], 'block');
 
 /**
  * Updates the output of the type calculator with our current selected type information.
@@ -17,12 +26,12 @@ for (let i = 0; i < typeAmount; i++) {
  */
 function updateTypeOutput(typeDataArray) {
   
-  moveAllTypesToLoc(typeDataArray[0], "4xPTC");
-  moveAllTypesToLoc(typeDataArray[1], "2xPTC");
-  moveAllTypesToLoc(typeDataArray[2], "1xPTC");
-  moveAllTypesToLoc(typeDataArray[3], "1/2xPTC");
-  moveAllTypesToLoc(typeDataArray[4], "1/4xPTC");
-  moveAllTypesToLoc(typeDataArray[5], "0xPTC");
+  dealWithEff(0, "4xPTC", typeDataArray);
+  dealWithEff(1, "2xPTC", typeDataArray);
+  dealWithEff(2, "1xPTC", typeDataArray);
+  dealWithEff(3, "1/2xPTC", typeDataArray);
+  dealWithEff(4, "1/4xPTC", typeDataArray);
+  dealWithEff(5, "0xPTC", typeDataArray);
   /*
   let htmlOutput = typeEff[0] + typeDataArray[0];
   
@@ -31,6 +40,20 @@ function updateTypeOutput(typeDataArray) {
   }
   typeContainer.innerHTML = htmlOutput;
   */
+}
+
+function dealWithEff(effNum, locToMoveTo, typeDataArray){
+  let typeInfo = typeDataArray[effNum];
+  if(typeInfo.length == 0){
+    setDisplayStatus(effContainerElements[effNum], 'none');
+  } else{
+    setDisplayStatus(effContainerElements[effNum], 'block');
+    moveAllTypesToLoc(typeDataArray[effNum], locToMoveTo);
+  }
+}
+
+function setDisplayStatus(element, status){
+  element.style.display = status;
 }
 
 function moveAllTypesToLoc(effArray, locToMoveTo){
