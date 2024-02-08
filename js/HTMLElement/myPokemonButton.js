@@ -20,7 +20,13 @@ buttTmp.innerHTML = `
       cursor: pointer;
   }
   .pButton[aria-pressed="true"] {
+      border: none;
       background-color: var(--type-color);
+      padding: 19px 32px;
+      box-shadow:
+            inset 0 0 2px 0 rgba(255,255,255,.4),
+            inset 0 0 3px 0 rgba(0,0,0,.4),
+            inset 0 0 3px 5px rgba(0,0,0,.05);
       color: white;
   }
   .pButton:hover {

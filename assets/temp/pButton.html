@@ -18,7 +18,13 @@
         cursor: pointer;
     }
     .pButton[aria-pressed="true"] {
+        border: none;
         background-color: var(--type-color);
+        padding: 19px 32px;
+        box-shadow:
+              inset 0 0 2px 0 #ffffff66,
+              inset 0 0 3px 0 #00000066,
+              inset 0 0 3px 5px #0000000d;
         color: white;
     }
     .pButton:hover {
@@ -28,7 +34,7 @@
         cursor: not-allowed;
         background-color: #37373780;
     }
-</style>
+    </style>
 <button class="pButton" type="button" aria-pressed="false">  
     <slot></slot>
 </button> 
