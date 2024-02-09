@@ -3,6 +3,9 @@ import {getCurrentTypeInfo, allTypeNames} from "./readTypeData.js";
 const typeAmount = 18;
 const effAmount = 6;
 
+
+const effectGridIDs = ["4xPTC","2xPTC","1xPTC","1/2xPTC","1/4xPTC","0xPTC"];
+
 const toggleButtonArray = [];
 for (let i = 0; i < typeAmount; i++) {
   toggleButtonArray.push(document.getElementById("p" + i).shadowRoot.querySelector('[aria-pressed]'));
@@ -25,21 +28,82 @@ setDisplayStatus(effContainerElements[2], 'block');
  *          ["Takes 4x From: ","Takes 2x From: ","Takes 1x From: ","Takes 1/2x From: ","Takes 1/4x From: ","Immune to: "]
  */
 function updateTypeOutput(typeDataArray) {
-  
-  dealWithEff(0, "4xPTC", typeDataArray);
-  dealWithEff(1, "2xPTC", typeDataArray);
-  dealWithEff(2, "1xPTC", typeDataArray);
-  dealWithEff(3, "1/2xPTC", typeDataArray);
-  dealWithEff(4, "1/4xPTC", typeDataArray);
-  dealWithEff(5, "0xPTC", typeDataArray);
-  /*
-  let htmlOutput = typeEff[0] + typeDataArray[0];
-  
-  for (let i = 1; i < typeDataArray.length; i++) {
-    htmlOutput += "<br>" + typeEff[i] + typeDataArray[i];
+  for (var i = 0; i < effAmount; i++) {
+    removeGridPadding(effectGridIDs[i]);
+    dealWithEff(i, effectGridIDs[i], typeDataArray);
   }
-  typeContainer.innerHTML = htmlOutput;
-  */
+
+  manageGridPadding();
+}
+
+//method to add padding to calculator results
+window.addEventListener('resize', function() {
+  
+  for (var i = 0; i < effAmount; i++) {
+    removeGridPadding(effectGridIDs[i]);
+  }
+  manageGridPadding();
+});
+
+function manageGridPadding(){
+  //intializes gridColumnNumbers with the number columns in each grid.
+  const gridColumnNumbers = [];
+  effectGridIDs.forEach((gridID) => {
+    gridColumnNumbers.push(getGridColumnLength(gridID))
+  });
+
+  //find the largest number of columns
+  const maxColLength = Math.max(...gridColumnNumbers);
+  
+  for (let i = 0; i < gridColumnNumbers.length ; i++) {
+    //if any of the grids have a column with less than the largest number of columns we need to pad it
+    let differenceFromMax = maxColLength - gridColumnNumbers[i];
+    if (differenceFromMax > 0) {
+      addGridPadding(effectGridIDs[i], differenceFromMax);
+    }
+  }
+}
+
+function removeGridPadding(locToRemoveFrom) {
+  const elementToRemoveFrom = document.getElementById(locToRemoveFrom);
+  var elementToRemove = elementToRemoveFrom.querySelector(".type-grid-padding");
+  while (elementToRemove != null) {
+    elementToRemove.remove();
+    elementToRemove = elementToRemoveFrom.querySelector(".type-grid-padding");
+  }
+}
+
+function addGridPadding(locToAddTo, amountToAdd) {
+  const elementToAddTo = document.getElementById(locToAddTo);
+  while (amountToAdd > 0){
+    const paddingElement = document.createElement("div");
+    paddingElement.classList.add("type-grid-padding");
+    elementToAddTo.append(paddingElement);
+    //setDisplayStatus(paddingElement, 'none');
+    amountToAdd--;
+  } 
+  
+
+}
+
+function getGridColumnLength(gridID){
+  // Get the grid container element
+  const gridContainer = document.getElementById(gridID);
+
+  // Get the computed styles of the grid container
+  const gridStyles = window.getComputedStyle(gridContainer);
+
+  // Get the value of the grid-template-columns property
+  const gridColumnValue = gridStyles.getPropertyValue('grid-template-columns');
+
+  // Split the value into an array of columns
+  var gridColumnArray = gridColumnValue.split(' ');
+
+  //remove from the array of columns all columns with size of 0px.
+  gridColumnArray = gridColumnArray.filter((column) => column != '0px');
+
+  // Get the number of columns
+  return gridColumnArray.length;
 }
 
 function dealWithEff(effNum, locToMoveTo, typeDataArray){

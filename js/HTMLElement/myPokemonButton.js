@@ -4,60 +4,31 @@ buttTmp.innerHTML = `
 element.style{
     --type-color: white
 }
-/* For mobile phones: */
-    [class*="pButton"] {
-        border: 4px solid var(--type-color);
-        background-color: transparent;
-        color: black;
-        padding: 10px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        transition-duration: 0.4s;
-        opacity: 0.75;
-        border-radius: 12px;
-        width: 100%;
-        cursor: pointer;
-    }
-    .pButton[aria-pressed="true"] {
-        border: none;
-        background-color: var(--type-color);
-        padding: 14px 16px;
-        box-shadow:
-            inset 0 0 2px 0 #ffffff66,
-            inset 0 0 3px 0 #00000066,
-            inset 0 0 3px 5px #0000000d;
-        color: white;
-    }
-
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .pButton {
-        border: 4px solid var(--type-color);
-        background-color: transparent;
-        color: black;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        transition-duration: 0.4s;
-        opacity: 0.75;
-        border-radius: 12px;
-        width: 100%;
-        cursor: pointer;
-    }
-    .pButton[aria-pressed="true"] {
-        border: none;
-        background-color: var(--type-color);
-        padding: 19px 32px;
-        box-shadow:
-            inset 0 0 2px 0 #ffffff66,
-            inset 0 0 3px 0 #00000066,
-            inset 0 0 3px 5px #0000000d;
-        color: white;
-    }
+[class*="pButton"] {
+    border: 4px solid var(--type-color);
+    background-color: transparent;
+    color: black;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    opacity: 0.75;
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.pButton[aria-pressed="true"] {
+    border: none;
+    background-color: var(--type-color);
+    padding: 14px 16px;
+    box-shadow:
+        inset 0 0 2px 0 #ffffff66,
+        inset 0 0 3px 0 #00000066,
+        inset 0 0 3px 5px #0000000d;
+    color: white;
 }
 
 .pButton:hover {
@@ -68,9 +39,9 @@ element.style{
     background-color: #37373780;
 }
 </style>
-  <button class="pButton" type="button" aria-pressed="false">  
-    <slot></slot>
-  </button> 
+<button class="pButton" type="button" aria-pressed="false">  
+  <slot></slot>
+</button> 
   `;
 
 
@@ -111,34 +82,19 @@ typeCardTmp.innerHTML = `
       --type-color: white;
       --type-darker: black;
   }
-  /* For mobile phones: */
-    [class*="tCard"] {
-      border: 5px solid var(--type-color);
-      background-color: var(--type-darker);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 3px;
-      width: 100%;
-      box-sizing: border-box;
-    }
 
-  @media only screen and (min-width: 768px) {
-    .tCard {
-      border: 5px solid var(--type-color);
-      background-color: var(--type-darker);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 3px;
-      width: 100%;
-    }
+  [class*="tCard"] {
+    border: 5px solid var(--type-color);
+    background-color: var(--type-darker);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
   }
-  
   
   </style>
   <div class="tCard">  
