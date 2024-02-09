@@ -45,7 +45,7 @@ element.style{
         transition-duration: 0.4s;
         opacity: 0.75;
         border-radius: 12px;
-        width: 125px;
+        width: 100%;
         cursor: pointer;
     }
     .pButton[aria-pressed="true"] {
@@ -135,7 +135,7 @@ typeCardTmp.innerHTML = `
       display: inline-block;
       font-size: 16px;
       border-radius: 3px;
-      width: 125px;
+      width: 100%;
     }
   }
   
