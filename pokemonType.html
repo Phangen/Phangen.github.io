@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PH Portfolio - Project</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="js/HTMLElement/myNav.js" type="text/javascript" defer></script>
+        <script src="js/HTMLElement/myFooter.js" type="text/javascript" defer></script>
+        <script src="js/HTMLElement/projectHelpers.js" type="text/javascript" defer></script>
+        <script src="js/HTMLElement/myPokemonButton.js" type="text/javascript" defer></script>
+        <script src="js/pokemon/readTypeData.js" type="module" defer></script>
+        <script src="js/pokemon/pokemonTypeButtons.js" type="module" defer></script>
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <navigation-component></navigation-component>
+            <!-- Page Content-->
+            <header class="py-5">
+                <style>
+                    element.style{
+                        --type-min-width: 5rem
+                    }
+                    /* For mobile: */
+                    [class*="grid-container-"] {
+                        margin: 5%;
+                        grid-gap: 10px;
+                    }
+                    [class*="selectionGrid"] {
+                        margin: 5%;
+                        display: grid;
+                        grid-gap: 5px;
+                        grid-template-columns: repeat(auto-fit, minmax(calc(var(--type-min-width) + 2.5rem + 2px), 1fr));
+                        width: 100%;
+                    }
+                    .generic-grid-item{
+                        width: 100%;
+                    }
+                    [class*="CalcGrid"] {
+                        margin: 5%;
+                        display: grid;
+                        grid-gap: 5px;
+                        grid-template-columns: repeat(auto-fit, minmax(calc(var(--type-min-width) + 2.5rem + 2px), 1fr));
+                        width: 100%;
+                    }
+                    [class*="mobileCenter"] {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    @media only screen and (min-width: 768px) {
+                        /* For desktop: */
+                        .grid-container {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            grid-gap: 20px;
+                        }
+                        .selectionGrid
+                        {
+                            display: grid;
+                            grid-template-columns: auto auto auto auto;
+                        }
+                        .calcGrid
+                        {
+                            display: block;
+                        }
+                        .mobileCenter {
+                            display: flex;
+                            justify-content: left;
+                            align-items: left;
+                            margin-left: 5%;
+                        }
+                    }
+                    
+                    
+                    
+                </style>
+                <div class="grid-container">
+
+                    <div>
+                        <div> 
+                            <h4 class="mobileCenter">Select Type:</h4> 
+                            <div class="mobileCenter">
+                                <div class="selectionGrid" style="--type-min-width: 5rem;">
+                                    <pokemon-button id="p0" class="generic-grid-item" style="--type-color: #A8A878;">Normal</pokemon-button>
+                                    <pokemon-button id="p1" class="generic-grid-item" style="--type-color: #F08030;">Fire</pokemon-button>
+                                    <pokemon-button id="p2" class="generic-grid-item" style="--type-color: #6890F0;">Water</pokemon-button>
+                                    <pokemon-button id="p3" class="generic-grid-item" style="--type-color: #F8D030;">Electric</pokemon-button>
+                                    <pokemon-button id="p4" class="generic-grid-item" style="--type-color: #78C850;">Grass</pokemon-button>
+                                    <pokemon-button id="p5" class="generic-grid-item" style="--type-color: #98D8D8;">Ice</pokemon-button>
+                                    <pokemon-button id="p6" class="generic-grid-item" style="--type-color: #C03028;">Fighting</pokemon-button>
+                                    <pokemon-button id="p7" class="generic-grid-item" style="--type-color: #A040A0;">Poison</pokemon-button>
+                                    <pokemon-button id="p8" class="generic-grid-item" style="--type-color: #E0C068;">Ground</pokemon-button>
+                                    <pokemon-button id="p9" class="generic-grid-item" style="--type-color: #A890F0;">Flying</pokemon-button>
+                                    <pokemon-button id="p10" class="generic-grid-item" style="--type-color: #F85888;">Psychic</pokemon-button>
+                                    <pokemon-button id="p11" class="generic-grid-item" style="--type-color: #A8B820;">Bug</pokemon-button>
+                                    <pokemon-button id="p12" class="generic-grid-item" style="--type-color: #B8A038;">Rock</pokemon-button>
+                                    <pokemon-button id="p13" class="generic-grid-item" style="--type-color: #705898;">Ghost</pokemon-button>
+                                    <pokemon-button id="p14" class="generic-grid-item" style="--type-color: #7038F8;">Dragon</pokemon-button>
+                                    <pokemon-button id="p15" class="generic-grid-item" style="--type-color: #705848;">Dark</pokemon-button>
+                                    <pokemon-button id="p16" class="generic-grid-item" style="--type-color: #B8B8D0;">Steel</pokemon-button>
+                                    <pokemon-button id="p17" class="generic-grid-item" style="--type-color: #EE99AC;">Fairy</pokemon-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="TypeInfoContainer">
+                        <div id="typeEff0">
+                            <h4 class="mobileCenter">Takes 4x from</h4>
+                            <div class = "mobileCenter">
+                                <div id="4xPTC" class="CalcGrid" style="--type-min-width: 5rem;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="typeEff1">
+                            <h4 class="mobileCenter">Takes 2x from:</h4>
+                            <div class = "mobileCenter">
+                                <div id="2xPTC" class ="CalcGrid" style="--type-min-width: 5rem;">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div id="typeEff2">
+                            <h4 class="mobileCenter">Takes 1x from:</h4>
+                            <div class = "mobileCenter">
+                                <div id="1xPTC" class ="CalcGrid" style="--type-min-width: 5rem;">
+                                    <pokemon-type-card id="ptc0" class="generic-grid-item" style="--type-color: #A8A878; --type-darker: #54543c;">Normal</pokemon-type-card>
+                                    <pokemon-type-card id="ptc1" class="generic-grid-item" style="--type-color: #F08030; --type-darker: #784018;">Fire</pokemon-type-card>
+                                    <pokemon-type-card id="ptc2" class="generic-grid-item" style="--type-color: #6890F0; --type-darker: #344878;">Water</pokemon-type-card>
+                                    <pokemon-type-card id="ptc3" class="generic-grid-item" style="--type-color: #F8D030; --type-darker: #7c6818;">Electric</pokemon-type-card>
+                                    <pokemon-type-card id="ptc4" class="generic-grid-item" style="--type-color: #78C850; --type-darker: #3c6428;">Grass</pokemon-type-card>
+                                    <pokemon-type-card id="ptc5" class="generic-grid-item" style="--type-color: #98D8D8; --type-darker: #4c6c6c;">Ice</pokemon-type-card>
+                                    <pokemon-type-card id="ptc6" class="generic-grid-item" style="--type-color: #C03028; --type-darker: #601814;">Fighting</pokemon-type-card>
+                                    <pokemon-type-card id="ptc7" class="generic-grid-item" style="--type-color: #A040A0; --type-darker: #502050;">Poison</pokemon-type-card>
+                                    <pokemon-type-card id="ptc8" class="generic-grid-item" style="--type-color: #E0C068; --type-darker: #706034;">Ground</pokemon-type-card>
+                                    <pokemon-type-card id="ptc9" class="generic-grid-item" style="--type-color: #A890F0; --type-darker: #544878;">Flying</pokemon-type-card>
+                                    <pokemon-type-card id="ptc10" class="generic-grid-item" style="--type-color: #F85888; --type-darker: #7c2c44;">Psychic</pokemon-type-card>
+                                    <pokemon-type-card id="ptc11" class="generic-grid-item" style="--type-color: #A8B820; --type-darker: #545c10;">Bug</pokemon-type-card>
+                                    <pokemon-type-card id="ptc12" class="generic-grid-item" style="--type-color: #B8A038; --type-darker: #5c501c;">Rock</pokemon-type-card>
+                                    <pokemon-type-card id="ptc13" class="generic-grid-item" style="--type-color: #705898; --type-darker: #382c4c;">Ghost</pokemon-type-card>
+                                    <pokemon-type-card id="ptc14" class="generic-grid-item" style="--type-color: #7038F8; --type-darker: #381c7c;">Dragon</pokemon-type-card>
+                                    <pokemon-type-card id="ptc15" class="generic-grid-item" style="--type-color: #705848; --type-darker: #382c24;">Dark</pokemon-type-card>
+                                    <pokemon-type-card id="ptc16" class="generic-grid-item" style="--type-color: #B8B8D0; --type-darker: #5c5c68;">Steel</pokemon-type-card>
+                                    <pokemon-type-card id="ptc17" class="generic-grid-item" style="--type-color: #EE99AC; --type-darker: #774d56;">Fairy</pokemon-type-card>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="typeEff3">
+                            <h4 class="mobileCenter">Takes 1/2x from:</h4>
+                            <div class = "mobileCenter">
+                                <div id="1/2xPTC" class ="CalcGrid" style="--type-min-width: 5rem;">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div id="typeEff4">
+                            <h4 class="mobileCenter">Takes 1/4x from:</h4>
+                            <div class = "mobileCenter">
+                                <div id="1/4xPTC" class ="CalcGrid" style="--type-min-width: 5rem;">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div id="typeEff5">
+                            <h4 class="mobileCenter">Immune to:</h4>
+                            <div class = "mobileCenter">
+                                <div id="0xPTC" class ="CalcGrid" style="--type-min-width: 5rem;">
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </header>
+            
+        </main>
+        <!-- Footer-->
+        <footer-component></footer-component>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+    </body>
+</html>
